@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#060a13"/><stop offset="1" stop-color="#0f2438"/></linearGradient>
+<radialGradient id="glow" cx="0.76" cy="0.5" r="0.5"><stop offset="0" stop-color="#38bdf8" stop-opacity="0.3"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
+<linearGradient id="t" x1="0" x2="1"><stop offset="0" stop-color="#e0f2fe"/><stop offset=".45" stop-color="#38bdf8"/><stop offset="1" stop-color="#818cf8"/></linearGradient>
+</defs>
+<rect width="1200" height="630" fill="url(#bg)"/><rect width="1200" height="630" fill="url(#glow)"/>
+<g transform="translate(905 315)"><circle r="250" fill="none" stroke="#38bdf8" stroke-width="2" opacity=".1"/><circle r="200" fill="none" stroke="#38bdf8" stroke-width="2" opacity=".14"/>
+<g transform="translate(-208 -208) scale(6.5)"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></g></g>
+<text x="80" y="200" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="46" fill="#ffffff">Vor<tspan fill="#38bdf8">T2</tspan>x</text>
+<text x="78" y="320" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="78" letter-spacing="-2" fill="#ffffff">Linux, at home</text>
+<text x="78" y="410" font-family="DejaVu Sans, sans-serif" font-weight="bold" font-size="78" letter-spacing="-2" fill="url(#t)">on your T2 Mac.</text>
+<text x="80" y="480" font-family="DejaVu Sans, sans-serif" font-size="28" fill="#a8bdd2">Fedora for Apple T2 Macs · vort2x.org</text>
+</svg>

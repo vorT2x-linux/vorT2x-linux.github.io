@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentation · VorT2x</title>
+<meta name="description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, Sidecar streaming and rescue tools.">
+<link rel="canonical" href="https://vort2x.org/documentation.html">
+<meta name="theme-color" content="#060a13">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="VorT2x">
+<meta property="og:title" content="Documentation · VorT2x">
+<meta property="og:description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, Sidecar streaming and rescue tools.">
+<meta property="og:url" content="https://vort2x.org/documentation.html">
+<meta property="og:image" content="https://vort2x.org/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="VorT2x home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg>
+      <span>Vor<b>T2</b>x</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#install">Install</a>
+      <a href="/documentation.html" aria-current="page">Docs</a>
+      <a href="/blog/">Blog</a>
+      <a href="https://github.com/vorT2x-linux/vort2x">GitHub</a>
+      <a class="btn btn-sm btn-patreon" href="https://patreon.com/VorT2x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3.1 4.5 6.9 4.5c2.1 0 3.7 1.1 5.1 3 1.4-1.9 3-3 5.1-3 3.8 0 6 3.9 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg>Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="page-hero">
+  <div class="wrap">
+    <span class="eyebrow reveal">Documentation</span>
+    <h1 class="reveal" style="--d:.06s">Everything you need,<br><span class="grad">start to finish.</span></h1>
+    <p class="reveal" style="--d:.12s">From an empty USB stick to a fully set-up Fedora on your T2 Mac, and everything after: updates, apps, Touch ID, graphics, streaming and rescue tools.</p>
+  </div>
+</section>
+
+<div class="wrap docs">
+  <aside class="toc" aria-label="On this page">
+    <h4>Getting started</h4>
+    <ol>
+      <li><a href="#before-you-start">Before you start</a></li>
+      <li><a href="#install">Make the USB stick</a></li>
+      <li><a href="#install-fedora">Install Fedora</a></li>
+      <li><a href="#first-login">First login</a></li>
+      <li><a href="#updating">Updating</a></li>
+    </ol>
+    <h4>Using your Mac</h4>
+    <ol>
+      <li><a href="#apps">Apps</a></li>
+      <li><a href="#touch-id">Touch ID</a></li>
+      <li><a href="#touch-bar">Touch Bar</a></li>
+      <li><a href="#audio">Audio</a></li>
+      <li><a href="#graphics">Graphics</a></li>
+      <li><a href="#hardware-video-decoding">Video decoding</a></li>
+      <li><a href="#streaming-using-sidecar">Streaming using Sidecar</a></li>
+      <li><a href="#macos-volumes">macOS volumes</a></li>
+      <li><a href="#commands">Handy commands</a></li>
+    </ol>
+    <h4>When things go wrong</h4>
+    <ol>
+      <li><a href="#rescue">Rescue and diagnostics</a></li>
+      <li><a href="#help">Getting help</a></li>
+    </ol>
+  </aside>
+
+  <article class="prose">
+
+    <section id="before-you-start">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></span>Before you start<a class="anchor" href="#before-you-start">#</a></h2>
+      <p>You need:</p>
+      <ul>
+        <li><strong>An Intel Mac with the T2 chip</strong>, running macOS.</li>
+        <li><strong>An empty USB drive.</strong> It will be erased. 8 GB or more is plenty.</li>
+        <li><strong>An internet connection</strong>, on the Mac and later in Fedora.</li>
+        <li><strong>Free disk space for Fedora.</strong> In macOS, use Disk Utility to make room (we suggest 50 GB or more).</li>
+      </ul>
+      <div class="callout warn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9.5 17h-19z"/><path d="M12 10v4M12 17h.01"/></svg><p><strong>Back up first.</strong> Installing an operating system next to macOS changes your disk. Make a Time Machine backup before you begin.</p></div>
+      <h3 id="startup-security">Allow your Mac to start Linux</h3>
+      <p>T2 Macs only start operating systems Apple trusts, so you need to relax that once:</p>
+      <ol>
+        <li>Restart and hold <kbd>⌘</kbd> <kbd>R</kbd> until macOS Recovery opens.</li>
+        <li>Choose <strong>Utilities › Startup Security Utility</strong> and sign in.</li>
+        <li>Set <strong>Secure Boot</strong> to <em>No Security</em>.</li>
+        <li>Set <strong>External Boot</strong> to <em>Allow booting from external or removable media</em>.</li>
+      </ol>
+      <h3 id="touch-id-first">Set up Touch ID in macOS</h3>
+      <p>Touch ID on Linux uses the fingerprints stored by macOS. If you want it, add your fingers in <strong>System Settings › Touch ID</strong> before you install Fedora.</p>
+    </section>
+
+    <section id="install">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 2h6v5H9z"/><rect x="6" y="7" width="12" height="15" rx="2"/><path d="M10 12h4"/></svg></span>Make the USB stick<a class="anchor" href="#install">#</a></h2>
+      <p>Connect the empty USB drive to your Mac, open <strong>Terminal</strong> and run:</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">curl -fsSL https://github.com/vorT2x-linux/vort2x/releases/latest/download/install-vort2x-fedora.sh | bash</span></pre></div>
+      <p>This downloads the latest VorT2x installer kit, checks it, and starts it. Then:</p>
+      <ol>
+        <li>Choose <strong>Fedora Workstation</strong>, <strong>Fedora KDE</strong> or the <strong>COSMIC</strong> spin. Workstation (GNOME) gets the most attention.</li>
+        <li>Choose the external USB drive.</li>
+        <li>The script downloads Fedora and verifies it, then asks you to type <code>ERASE diskN</code> to confirm. Nothing is erased before that.</li>
+      </ol>
+      <p>The stick gets the T2 keyboard and trackpad drivers, Wi-Fi for the live system, and Apple's Wi-Fi firmware for the installed system. On Macs whose Bluetooth runs over PCIe it also carries the Bluetooth firmware.</p>
+      <h3 id="from-a-checkout">From a copy of the code</h3>
+      <p>Developers can run the same tool from a clone of the repository, also with an ISO you already downloaded:</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">git clone https://github.com/vorT2x-linux/vort2x.git && cd vort2x</span>
+<span class="p">$ </span><span class="cmd">bash ./scripts/macos/prepare-fedora-installer.sh --help</span></pre></div>
+    </section>
+
+    <section id="install-fedora">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>Install Fedora<a class="anchor" href="#install-fedora">#</a></h2>
+      <ol>
+        <li>With the stick connected, restart and hold <kbd>⌥ Option</kbd>. Pick the orange <strong>EFI Boot</strong> disk.</li>
+        <li>Choose <strong>Start Fedora Live with VorT2x input drivers</strong>. The standard Fedora entry is there as a fallback, and a <em>Troubleshooting</em> section has options such as basic graphics or the dedicated GPU switched off.</li>
+        <li>Start the Fedora installer and install as usual, into the free space you made.</li>
+      </ol>
+      <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg><p><strong>Reinstalling?</strong> For a clean reinstall, format the existing Linux <code>/boot</code> partition in the installer.</p></div>
+      <p>If no Wi-Fi network shows up in the live system, open a terminal and run <code>sudo /run/vort2x/vort2x-live-wifi</code>.</p>
+    </section>
+
+    <section id="first-login">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg></span>First login<a class="anchor" href="#first-login">#</a></h2>
+      <p>Log in to your new Fedora and <strong>connect to Wi-Fi</strong>. The VorT2x installer opens in a terminal by itself and works in two phases:</p>
+      <ol>
+        <li><strong>Phase 1</strong> updates Fedora and prepares the newest kernel. Reboot when it asks.</li>
+        <li><strong>Phase 2</strong> starts by itself after the reboot and installs VorT2x: drivers, services, apps and fixes. Read its summary, then reboot once more.</li>
+      </ol>
+      <p>Don't close the window while it works. If no terminal appears, open one and run <code>vort2x-install</code> as your normal user, without <code>sudo</code>. It asks for your password when it needs it.</p>
+      <p>Optional parts are offered during the install: the Touch Bar daemon on Macs with a Touch Bar, and, on GNOME, the <strong>Eddy</strong> desktop theme and login-screen branding.</p>
+      <p>The install log is kept in <code>~/.local/state/vort2x/install.log</code>.</p>
+    </section>
+
+    <section id="updating">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 12a8 8 0 1 1-2.3-5.7"/><path d="M20 4v4h-4"/></svg></span>Updating<a class="anchor" href="#updating">#</a></h2>
+      <p><strong>Fedora updates</strong> come from Fedora as usual. The T2 drivers are DKMS modules and rebuild themselves for each new kernel.</p>
+      <p><strong>VorT2x updates</strong> come in releases. Open the <strong>VorT2x Update</strong> app to see what's new and install only the parts that changed, or run:</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">vort2x-install</span></pre></div>
+      <h3 id="releases">How releases work</h3>
+      <p>Each VorT2x release says which Fedora versions it supports. Your Mac always moves to the newest release made for the Fedora version it runs. When a new Fedora comes out, it gets its own release, and Macs still on the older Fedora stay on the last release made for it. The current release supports <strong>Fedora 45</strong>.</p>
+    </section>
+
+    <section id="apps">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span>Apps<a class="anchor" href="#apps">#</a></h2>
+      <p>These are installed for you and appear in your app menu.</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>App</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td>VorT2x Update</td><td>Updates VorT2x and installs only what changed.</td></tr>
+          <tr><td>T2 Fan Control</td><td>Fan curves with live temperatures.</td></tr>
+          <tr><td>T2 SMC Control</td><td>SMC temperatures and a battery charge limit.</td></tr>
+          <tr><td>T2 Force Click</td><td>Trackpad click and Force Click pressure and actions.</td></tr>
+          <tr><td>T2 TrueTone</td><td>Display white that follows the room light, evening mode and automatic brightness.</td></tr>
+          <tr><td>T2 Zone Power</td><td>Watches the SMC power zones.</td></tr>
+          <tr><td>T2 Power Tune</td><td>Tunes PCIe ASPM and power-saving settings.</td></tr>
+          <tr><td>T2 Power Explorer</td><td>Shows device topology and runtime power state.</td></tr>
+          <tr><td>T2 GPU Control / Hybrid GPU Control</td><td>Graphics settings on MacBook Pros with two GPUs.</td></tr>
+          <tr><td>T2 AirShare</td><td>Shares files with Android phones (Quick Share) and Apple devices (AirDrop).</td></tr>
+          <tr><td>T2 Debug</td><td>A live process list and log stream from the T2 itself.</td></tr>
+          <tr><td>T2 Touch Bar</td><td>The Touch Bar daemon, see <a href="#touch-bar">Touch Bar</a>.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="touch-id">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11c0 3-.5 6-2 8"/><path d="M8 4.8A8 8 0 0 1 20 12c0 2-.2 4-.7 6"/><path d="M4 16c.6-1.3 1-2.6 1-4a7 7 0 0 1 1.2-3.9"/><path d="M8.5 12a3.5 3.5 0 1 1 7 0c0 3.5-.8 6.5-2.2 9"/></svg></span>Touch ID<a class="anchor" href="#touch-id">#</a></h2>
+      <p>VorT2x connects the T2's fingerprint sensor to Fedora's standard fingerprint service, <code>fprintd</code>, and switches on fingerprint login. You can then unlock your session and approve <code>sudo</code> with a finger.</p>
+      <ul>
+        <li>It uses the fingerprints you enrolled in <strong>macOS</strong>. To add or remove fingers, do it there.</li>
+        <li>Press <kbd>Esc</kbd> during a fingerprint prompt to stop it and type your password instead.</li>
+      </ul>
+    </section>
+
+    <section id="touch-bar">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="20" height="6" rx="2"/><path d="M6 12h.01M10 12h4M18 12h.01"/></svg></span>Touch Bar<a class="anchor" href="#touch-bar">#</a></h2>
+      <p>On MacBook Pros with a Touch Bar, the installer offers the VorT2x Touch Bar daemon. The bar stays dark until you touch it or press <kbd>Fn</kbd>, and it has three layers:</p>
+      <ul>
+        <li>media keys</li>
+        <li>F-keys</li>
+        <li>keys the MacBook keyboard lacks: Print, Insert, Delete, Home, End, Page Up and Page Down</li>
+      </ul>
+      <p>Swipe with two fingers on the lit bar to move between layers. Hold <kbd>Fn</kbd> for a moment to switch between media keys and the layer you used last. Key presses get haptic feedback, and a Touch ID prompt appears when a fingerprint is wanted.</p>
+      <p>You can add up to four personal keys to the third layer in <code>~/.config/vort2x-touchbar/keys.toml</code>.</p>
+    </section>
+
+    <section id="audio">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H2v6h4l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M19 5a10 10 0 0 1 0 14"/></svg></span>Audio<a class="anchor" href="#audio">#</a></h2>
+      <p>VorT2x installs audio processing for the internal speakers and microphones, modelled on what macOS applies to each model: equalisation, crossovers, compression, limiting and virtual bass. It's chosen automatically for your Mac model.</p>
+      <p>Headphones and headset microphones are left untouched. Models without a profile keep Fedora's default sound.</p>
+    </section>
+
+    <section id="graphics">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></span>Graphics<a class="anchor" href="#graphics">#</a></h2>
+      <p>MacBook Pros with both Intel and AMD graphics get a GPU control app that matches the Mac: <strong>T2 GPU Control</strong> or <strong>T2 Hybrid GPU Control</strong>. The installer picks the right one.</p>
+    </section>
+
+    <section id="hardware-video-decoding">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M10 9l5 3-5 3z"/></svg></span>Hardware video decoding<a class="anchor" href="#hardware-video-decoding">#</a></h2>
+      <p>Playing video on the GPU saves battery and keeps the fans quiet. VorT2x enables the <a href="https://rpmfusion.org">RPM Fusion</a> repositories and installs the full VA-API driver for each GPU in your Mac:</p>
+      <ul>
+        <li>Intel: <code>intel-media-driver</code></li>
+        <li>AMD: <code>mesa-va-drivers-freeworld</code>, which replaces Fedora's <code>mesa-va-drivers</code></li>
+      </ul>
+      <p>To check it, install <code>libva-utils</code> and run <code>vainfo</code>. It lists the video formats your GPU can decode.</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">sudo dnf install libva-utils</span>
+<span class="p">$ </span><span class="cmd">vainfo</span></pre></div>
+    </section>
+
+    <section id="streaming-using-sidecar">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="11" height="14" rx="2"/><rect x="16" y="8" width="5" height="8" rx="1.2"/><path d="M14 12h2"/></svg></span>Streaming using Sidecar<a class="anchor" href="#streaming-using-sidecar">#</a></h2>
+      <p>Like Sidecar on macOS, you can use a tablet (or a phone, or another computer) as a second screen. The T2 has its own video encoder for this, so the stream doesn't load the CPU. <a href="https://github.com/LizardByte/Sunshine">Sunshine</a> runs on the Mac and <a href="https://moonlight-stream.org">Moonlight</a> shows the screen on the other device and sends touch, mouse and keyboard back.</p>
+      <h3 id="sidecar-sunshine">1. Build Sunshine with V4L2 encoding</h3>
+      <p>Sunshine needs V4L2 encoder support to use the T2's encoder. It's proposed upstream in <a href="https://github.com/LizardByte/Sunshine/pull/5717">Sunshine pull request #5717</a>; until that's merged, build Sunshine with it. Install the build tools and libraries Sunshine's own build guide lists, then:</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">git clone --recurse-submodules https://github.com/LizardByte/Sunshine.git && cd Sunshine</span>
+<span class="p">$ </span><span class="cmd">git fetch origin pull/5717/head:v4l2 && git checkout v4l2 && git submodule update --init --recursive</span>
+<span class="p">$ </span><span class="cmd">cmake -B build -G Ninja -DCMAKE_BUILD_TYPE=Release -DBUILD_DOCS=OFF -DBUILD_TESTS=OFF -DSUNSHINE_ENABLE_CUDA=OFF -DSUNSHINE_ASSETS_DIR=share/sunshine</span>
+<span class="p">$ </span><span class="cmd">ninja -C build && sudo cmake --install build</span></pre></div>
+      <p>This installs it as <code>/usr/local/bin/sunshine</code>, which is where VorT2x looks for it.</p>
+      <h3 id="sidecar-config">2. Configure Sunshine</h3>
+      <p>Create <code>~/.config/sunshine/sunshine.conf</code>:</p>
+      <div class="code"><pre><span class="cmd">encoder = v4l2m2m</span>
+<span class="cmd">capture = portal</span>
+<span class="cmd">hevc_mode = 1</span>
+<span class="cmd">av1_mode = 1</span>
+<span class="cmd">system_tray = disabled</span></pre></div>
+      <ul>
+        <li><code>encoder = v4l2m2m</code> uses the V4L2 (T2) encoder.</li>
+        <li><code>hevc_mode = 1</code> and <code>av1_mode = 1</code> keep the stream on H.264, which is what the Sidecar encoder handles.</li>
+        <li><code>capture = portal</code> records the screen through GNOME's screen sharing.</li>
+        <li><code>system_tray = disabled</code> stops Sunshine quitting on GNOME, which has no tray.</li>
+      </ul>
+      <p>Run <code>sunshine</code> once from a terminal, open <a href="https://localhost:47990">https://localhost:47990</a>, create a user name and password, and pair Moonlight on your tablet with the PIN it shows. Then quit it.</p>
+      <h3 id="sidecar-display">3. Turn on the extra display</h3>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">t2-sidecar on</span>              <span class="c"># the mode used last (first time 1920x1200 at 60 Hz)</span>
+<span class="p">$ </span><span class="cmd">t2-sidecar on 2560x1600@60</span>
+<span class="p">$ </span><span class="cmd">t2-sidecar status</span>
+<span class="p">$ </span><span class="cmd">t2-sidecar off</span></pre></div>
+      <p>GNOME shows a new monitor that you can arrange in <strong>Settings › Displays</strong>. <code>t2-sidecar on</code> also starts Sunshine; when GNOME asks which screen to share, pick the new monitor. Use the same resolution in Moonlight for the sharpest picture. <code>t2-sidecar off</code>, locking the screen or logging out removes the monitor and stops Sunshine.</p>
+    </section>
+
+    <section id="macos-volumes">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span>macOS volumes<a class="anchor" href="#macos-volumes">#</a></h2>
+      <p>Your macOS volumes are mounted <strong>read-only</strong> under <code>/media/macOS</code> at every boot, so you can open your Mac files from Fedora without any risk of changing them.</p>
+    </section>
+
+    <section id="commands">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 17l6-6-6-6M12 19h8"/></svg></span>Handy commands<a class="anchor" href="#commands">#</a></h2>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>vort2x-install</code></td><td>Updates VorT2x to the newest release for your Fedora and reruns the installer.</td></tr>
+          <tr><td><code>update-apps</code></td><td>Reinstalls the VorT2x apps from the newest release.</td></tr>
+          <tr><td><code>update-modules</code></td><td>Rebuilds the T2 kernel modules. Reboot afterwards.</td></tr>
+          <tr><td><code>boot-macos</code></td><td>Restarts straight into macOS, once.</td></tr>
+          <tr><td><code>edit-grub</code></td><td>Opens the boot loader settings (<code>/etc/default/grub</code>) in an editor.</td></tr>
+          <tr><td><code>update-grub</code></td><td>Applies those settings.</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="rescue">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l3.6 3.6M14.8 14.8l3.6 3.6M18.4 5.6l-3.6 3.6M9.2 14.8l-3.6 3.6"/></svg></span>Rescue and diagnostics<a class="anchor" href="#rescue">#</a></h2>
+      <p>Keep your VorT2x USB stick: its live system has Wi-Fi and a few rescue tools. Run these in a terminal there:</p>
+      <div class="table-wrap"><table>
+        <thead><tr><th>Command</th><th>What it does</th></tr></thead>
+        <tbody>
+          <tr><td><code>sudo /run/vort2x/vort2x-live-wifi</code></td><td>Brings up Wi-Fi if no network shows up.</td></tr>
+          <tr><td><code>sudo /run/vort2x/vort2x-live-bluetooth</code></td><td>Brings up Bluetooth on Macs whose Bluetooth runs over PCIe.</td></tr>
+          <tr><td><code>sudo /run/vort2x/vort2x-live-diagnostics --rerun</code></td><td>Writes one diagnostics archive to a second USB drive, for bug reports.</td></tr>
+          <tr><td><code>sudo vort2x-rescue</code></td><td>Mounts your installed Fedora and opens a shell inside it (chroot).</td></tr>
+        </tbody>
+      </table></div>
+    </section>
+
+    <section id="help">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14M12 17h.01"/></svg></span>Getting help<a class="anchor" href="#help">#</a></h2>
+      <p>If something doesn't work, <a href="https://github.com/vorT2x-linux/vort2x/issues">open an issue on GitHub</a>. It helps a lot to include:</p>
+      <ul>
+        <li>your Mac model (for example <code>MacBookPro16,1</code>: run <code>cat /sys/class/dmi/id/product_name</code>),</li>
+        <li>the VorT2x version and Fedora version,</li>
+        <li><code>~/.local/state/vort2x/install.log</code>, or the diagnostics archive from the USB stick.</li>
+      </ul>
+      <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8h.01M11 12h1v5h1"/></svg><p><strong>Bluetooth says "unable to determine board type"?</strong> The PCIe Bluetooth driver only knows some models so far (MacBookAir9,1, MacBookPro15,4 and MacBookPro16,3). Please report your model rather than installing firmware by hand.</p></div>
+      <p>You can also write to <a href="mailto:contact@vort2x.org">contact@vort2x.org</a>.</p>
+    </section>
+
+  </article>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg><span>Vor<b>T2</b>x</span></a>
+        <p>Fedora Linux on Apple T2 Macs. VorT2x is a fork of KAIT2EN, an independent project not affiliated with or endorsed by KAIT2EN or Apple.</p>
+      </div>
+      <div><h4>Project</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#install">Install</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/releases">Releases</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="/documentation.html">Documentation</a></li><li><a href="/#faq">FAQ</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/issues">Report a problem</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="https://github.com/vorT2x-linux/vort2x">GitHub</a></li><li><a href="https://patreon.com/VorT2x">Patreon</a></li><li><a href="mailto:contact@vort2x.org">contact@vort2x.org</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> VorT2x contributors. Built on the work of André Eikmeyer, 4f1sh3r and the KAIT2EN contributors.</span>
+      <span>Kernel modules GPL-2.0 · everything else GPL-3.0-or-later · Apple and Mac are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why VorT2x exists · VorT2x Blog</title>
+<meta name="description" content="VorT2x is a new, friendly project for running Fedora Linux on Apple T2 Macs. Here's why we started it and what it's for.">
+<link rel="canonical" href="https://vort2x.org/blog/why-vort2x-exists.html">
+<meta name="theme-color" content="#060a13">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VorT2x">
+<meta property="og:title" content="Why VorT2x exists · VorT2x Blog">
+<meta property="og:description" content="VorT2x is a new, friendly project for running Fedora Linux on Apple T2 Macs. Here's why we started it and what it's for.">
+<meta property="og:url" content="https://vort2x.org/blog/why-vort2x-exists.html">
+<meta property="og:image" content="https://vort2x.org/blog/why-we-started-vort2x-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="article:published_time" content="2026-11-18">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Why VorT2x exists", "description": "VorT2x is a new, friendly project for running Fedora Linux on Apple T2 Macs. Here's why we started it and what it's for.", "image": "https://vort2x.org/blog/why-we-started-vort2x-hero.png", "datePublished": "2026-11-18", "dateModified": "2026-11-18", "author": {"@type": "Person", "name": "Kirk"}, "publisher": {"@type": "Organization", "name": "VorT2x", "url": "https://vort2x.org/"}, "mainEntityOfPage": "https://vort2x.org/blog/why-vort2x-exists.html"}</script>
+<script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="VorT2x home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg>
+      <span>Vor<b>T2</b>x</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#install">Install</a>
+      <a href="/documentation.html">Docs</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="https://github.com/vorT2x-linux/vort2x">GitHub</a>
+      <a class="btn btn-sm btn-patreon" href="https://patreon.com/VorT2x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3.1 4.5 6.9 4.5c2.1 0 3.7 1.1 5.1 3 1.4-1.9 3-3 5.1-3 3.8 0 6 3.9 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg>Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <figure class="article-hero reveal"><img src="/blog/why-we-started-vort2x-hero.png" alt="The VorT2x swirl logo next to the words Why we started VorT2x" width="1600" height="900"></figure>
+  <article class="article">
+    <div style="text-align:center"><a class="eyebrow" href="/blog/">Blog</a></div>
+    <h1>Why VorT2x exists</h1>
+    <div class="meta"><span>Kirk</span><span class="dot"></span><time datetime="2026-11-18">18 November 2026</time><span class="dot"></span><span>3 min read</span></div>
+    <div class="body">
+      <p>If you own a MacBook Pro, MacBook Air, iMac or Mac mini with Apple's T2 chip, you already know how good the hardware is. The build quality, the displays and the sound are hard to beat, and these machines run Linux beautifully once the T2 is taken care of. In our view, a T2 Mac is simply the best Linux laptop or desktop you can get.</p>
+      <p>Getting there has taken years of patient effort from a lot of people: drivers for the keyboard, trackpad and Wi-Fi, kernel patches, Touch ID, Touch Bar, audio and fan control. Every bit of VorT2x builds on that, and we owe those people a big thank you.</p>
+
+      <h2>A crowded scene</h2>
+      <p>Linux on T2 Macs is no longer a tiny corner of the internet. Many projects now exist side by side, each pulling in its own direction, and it has become harder to see where the effort is going. Alongside that, the atmosphere in some places hasn't always been welcoming, and a project loses people when newcomers don't feel comfortable asking questions.</p>
+      <p>We decided to start fresh, with a single goal and a positive, supportive place to pursue it.</p>
+
+      <h2>What VorT2x does</h2>
+      <p>VorT2x began as a fork of KAIT2EN. It keeps that foundation and narrows it down to one job: <strong>installing Fedora on a T2 Mac and keeping it working.</strong></p>
+      <ol>
+        <li>On macOS, one command builds a Fedora USB installer with the T2 drivers already on it.</li>
+        <li>You install Fedora from that stick the normal way.</li>
+        <li>After your first login, VorT2x sets up everything else on its own.</li>
+      </ol>
+      <p>Fedora 45 is the first version we support. When a new Fedora comes out it gets its own VorT2x release, and machines still on an older Fedora stay on the release made for them.</p>
+      <p>Version <strong>v0.2.0</strong> is available now, and the next step is trying it on as many different T2 Macs as possible.</p>
+
+      <h2>Our ground rules</h2>
+      <ul>
+        <li><strong>Kindness first.</strong> We're all volunteers, and nobody knows everything.</li>
+        <li><strong>Credit where it's due.</strong> André Eikmeyer, 4f1sh3r and the KAIT2EN contributors laid the groundwork, and their names stay with the code.</li>
+        <li><strong>Do one thing well.</strong> VorT2x is an installer, and we'd rather it be a great one than spread ourselves thin.</li>
+      </ul>
+
+      <h2>Get involved</h2>
+      <p>Have a T2 Mac? Give VorT2x a try and let us know what happens, good or bad. Issues, pull requests and success stories are all welcome on <a href="https://github.com/vorT2x-linux/vort2x">GitHub</a>.</p>
+      <p>You can also help the project keep going on <a href="https://patreon.com/VorT2x">Patreon</a>.</p>
+      <p>Here's to many more years of Linux on T2 Macs.</p>
+      <p class="sign">— Kirk</p>
+    </div>
+
+    <div class="card author">
+      <div class="avatar"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="32" r="7" fill="currentColor"/></svg></div>
+      <div><strong>Kirk</strong><p style="margin:2px 0 0">Maintainer of VorT2x. Firm believer that T2 Macs are the best Linux machines ever made.</p></div>
+    </div>
+
+    <div class="share">
+      <a class="btn btn-primary" href="/#install">Try VorT2x</a>
+      <a class="btn" href="https://patreon.com/VorT2x">Support on Patreon</a>
+      <a class="btn" href="https://bsky.app/intent/compose?text=Why%20VorT2x%20exists%3A%20Fedora%20on%20Apple%20T2%20Macs%20https%3A%2F%2Fvort2x.org%2Fblog%2Fwhy-vort2x-exists.html">Share on Bluesky</a>
+      <a class="btn" href="https://mastodonshare.com/?text=Why%20VorT2x%20exists%3A%20Fedora%20on%20Apple%20T2%20Macs&amp;url=https%3A%2F%2Fvort2x.org%2Fblog%2Fwhy-vort2x-exists.html">Share on Mastodon</a>
+    </div>
+  </article>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg><span>Vor<b>T2</b>x</span></a>
+        <p>Fedora Linux on Apple T2 Macs. VorT2x is a fork of KAIT2EN, an independent project not affiliated with or endorsed by KAIT2EN or Apple.</p>
+      </div>
+      <div><h4>Project</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#install">Install</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/releases">Releases</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="/documentation.html">Documentation</a></li><li><a href="/#faq">FAQ</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/issues">Report a problem</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="https://github.com/vorT2x-linux/vort2x">GitHub</a></li><li><a href="https://patreon.com/VorT2x">Patreon</a></li><li><a href="mailto:contact@vort2x.org">contact@vort2x.org</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> VorT2x contributors. Built on the work of André Eikmeyer, 4f1sh3r and the KAIT2EN contributors.</span>
+      <span>Kernel modules GPL-2.0 · everything else GPL-3.0-or-later · Apple and Mac are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
