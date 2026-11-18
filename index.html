@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VorT2x</title>
+<meta name="description" content="VorT2x: Linux on Apple T2 Macs. Coming soon.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230f1720'/%3E%3Cpath d='M32 12a20 20 0 1 1-19.6 24' fill='none' stroke='%2338bdf8' stroke-width='6' stroke-linecap='round'/%3E%3Ccircle cx='32' cy='32' r='6' fill='%2338bdf8'/%3E%3C/svg%3E">
+<style>
+  :root {
+    --bg: #f6f8fa;
+    --fg: #0f1720;
+    --muted: #556270;
+    --accent: #0284c7;
+    --card: #ffffff;
+    --line: #dde3ea;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0b1117;
+      --fg: #e6edf3;
+      --muted: #93a1b0;
+      --accent: #38bdf8;
+      --card: #111a23;
+      --line: #1f2b37;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 16px;
+    background: var(--bg);
+    color: var(--fg);
+    font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  }
+  main {
+    width: 100%;
+    max-width: 560px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 40px 32px;
+    text-align: center;
+  }
+  .mark { width: 72px; height: 72px; margin: 0 auto 20px; display: block; }
+  h1 { margin: 0; font-size: 2.4rem; letter-spacing: -0.02em; }
+  h1 span { color: var(--accent); }
+  .say { margin: 4px 0 24px; color: var(--muted); font-size: 0.95rem; }
+  p { margin: 0 0 16px; }
+  .soon {
+    display: inline-block;
+    margin: 8px 0 24px;
+    padding: 4px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    color: var(--muted);
+    font-size: 0.85rem;
+  }
+  a { color: var(--accent); }
+  .links a { margin: 0 8px; }
+  @media (max-width: 420px) { main { padding: 32px 20px; } h1 { font-size: 2rem; } }
+</style>
+</head>
+<body>
+<main>
+  <svg class="mark" viewBox="0 0 64 64" aria-hidden="true">
+    <path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" style="color: var(--accent)"/>
+    <circle cx="32" cy="32" r="6" style="fill: var(--accent)"/>
+  </svg>
+  <h1>Vor<span>T2</span>x</h1>
+  <div class="say">pronounced “vortex”</div>
+  <p>Linux on Apple T2 Macs, made to just work.</p>
+  <div class="soon">Coming soon</div>
+  <p class="links">
+    <a href="https://github.com/vorT2x-linux">GitHub</a>
+  </p>
+</main>
+</body>
+</html>
