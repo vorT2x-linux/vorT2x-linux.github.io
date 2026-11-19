@@ -403,6 +403,13 @@ td code { white-space: nowrap; }
 .post-card p { color: var(--fg-soft); }
 .meta { color: var(--muted); font-size: .86rem; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 .meta .dot { width: 3px; height: 3px; border-radius: 50%; background: var(--muted); }
+.post-tag { color: var(--accent); font-weight: 650; }
+.tag-filter { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 26px; }
+.tag-filter a { padding: 7px 14px; border-radius: 999px; font-size: .88rem; font-weight: 600; color: var(--fg-soft); background: rgba(148, 178, 214, .06); border: 1px solid var(--line); }
+.tag-filter a:hover { text-decoration: none; border-color: rgba(56, 189, 248, .5); color: var(--fg); }
+.tag-filter a[aria-current="true"] { background: rgba(56, 189, 248, .12); border-color: rgba(56, 189, 248, .55); color: var(--fg); }
+.tag-empty { color: var(--muted); padding: 10px 0 60px; }
+.post-card[hidden] { display: none; }
 .more { display: inline-flex; gap: 6px; align-items: center; margin-top: 16px; color: var(--accent); font-weight: 600; }
 
 .article { max-width: 760px; margin: 0 auto; padding-bottom: 40px; }
@@ -414,6 +421,7 @@ td code { white-space: nowrap; }
 .article .body h2 { font-weight: 750; font-size: 1.75rem; letter-spacing: -0.025em; margin: 48px 0 12px; }
 .article .body p, .article .body li { color: var(--fg-soft); }
 .article .body strong { color: var(--fg); }
+.article .body h3 { font-weight: 700; font-size: 1.3rem; letter-spacing: -0.015em; margin: 32px 0 8px; color: var(--fg); }
 .article .body ol, .article .body ul { padding-left: 1.3em; }
 .article .body li { margin: 8px 0; }
 .article .sign { margin-top: 36px; font-weight: 650; color: var(--fg); }

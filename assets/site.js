@@ -195,6 +195,30 @@
     }
   }
 
+  // Blog: filter posts by tag, from ?tag= so the links can be shared.
+  const tagLinks = [...document.querySelectorAll(".tag-filter a")];
+  if (tagLinks.length) {
+    const cards = [...document.querySelectorAll(".post-card[data-tags]")];
+    const empty = document.querySelector(".tag-empty");
+    const show = (tag) => {
+      if (!tagLinks.some((a) => a.dataset.tag === tag)) tag = "";
+      tagLinks.forEach((a) => a.setAttribute("aria-current", String(a.dataset.tag === tag)));
+      let shown = 0;
+      cards.forEach((c) => {
+        const on = !tag || c.dataset.tags.split(" ").includes(tag);
+        c.hidden = !on;
+        if (on) { shown++; c.classList.add("in"); }
+      });
+      if (empty) empty.hidden = shown > 0;
+    };
+    tagLinks.forEach((a) => a.addEventListener("click", (e) => {
+      e.preventDefault();
+      history.replaceState(null, "", a.href);
+      show(a.dataset.tag);
+    }));
+    show(new URLSearchParams(location.search).get("tag") || "");
+  }
+
   // Docs: highlight the section in view.
   const tocLinks = [...document.querySelectorAll(".toc a[href^='#']")];
   if (tocLinks.length && "IntersectionObserver" in window) {

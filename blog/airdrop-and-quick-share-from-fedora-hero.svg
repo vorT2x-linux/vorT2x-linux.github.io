@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0b1220"/>
+<stop offset="1" stop-color="#0f2438"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.74" cy="0.52" r="0.45">
+<stop offset="0" stop-color="#38bdf8" stop-opacity="0.26"/>
+<stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+</radialGradient>
+<pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1.4" fill="#38bdf8" opacity="0.10"/>
+</pattern>
+<linearGradient id="beamL" x1="1" y1="0" x2="0" y2="0">
+<stop offset="0" stop-color="#38bdf8" stop-opacity="0.9"/>
+<stop offset="1" stop-color="#818cf8" stop-opacity="0.9"/>
+</linearGradient>
+<linearGradient id="beamR" x1="0" y1="0" x2="1" y2="0">
+<stop offset="0" stop-color="#38bdf8" stop-opacity="0.9"/>
+<stop offset="1" stop-color="#22d3ee" stop-opacity="0.9"/>
+</linearGradient>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+
+<!-- the scene: a MacBook in the middle, a phone either side -->
+<g transform="translate(1184 470)">
+  <!-- ripples from the laptop -->
+  <g fill="none" stroke="#38bdf8">
+    <circle r="190" stroke-width="2" opacity="0.22"/>
+    <circle r="270" stroke-width="2" opacity="0.13"/>
+    <circle r="350" stroke-width="2" opacity="0.07"/>
+  </g>
+
+  <!-- transfer paths, dashed, with a file moving along each -->
+  <path d="M -96 -10 C -150 -70 -190 -90 -248 -60" fill="none" stroke="url(#beamL)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 14"/>
+  <path d="M 96 -10 C 150 -70 190 -90 248 -60" fill="none" stroke="url(#beamR)" stroke-width="4" stroke-linecap="round" stroke-dasharray="2 14"/>
+  <g transform="translate(-176 -86) rotate(-12)">
+    <rect x="-17" y="-22" width="34" height="44" rx="5" fill="#0b1220" stroke="#818cf8" stroke-width="3"/>
+    <path d="M -8 -8 h16 M -8 0 h16 M -8 8 h10" stroke="#818cf8" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <g transform="translate(176 -86) rotate(12)">
+    <rect x="-17" y="-22" width="34" height="44" rx="5" fill="#0b1220" stroke="#22d3ee" stroke-width="3"/>
+    <circle cx="-4" cy="-6" r="5" fill="#22d3ee"/>
+    <path d="M -12 14 l9 -11 6 7 4 -4 7 8 z" fill="#22d3ee"/>
+  </g>
+
+  <!-- laptop -->
+  <g>
+    <rect x="-118" y="-92" width="236" height="152" rx="12" fill="#0b1220" stroke="#38bdf8" stroke-width="5"/>
+    <rect x="-104" y="-78" width="208" height="124" rx="4" fill="#0f2438"/>
+    <g transform="translate(-26 -40) scale(0.82)"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></g>
+    <path d="M -150 62 h300 l-16 18 h-268 z" fill="#38bdf8" opacity="0.9"/>
+    <rect x="-30" y="62" width="60" height="6" rx="3" fill="#0b1220"/>
+  </g>
+
+  <!-- phone left -->
+  <g transform="translate(-300 -10)">
+    <rect x="-44" y="-86" width="88" height="172" rx="18" fill="#0b1220" stroke="#818cf8" stroke-width="5"/>
+    <rect x="-16" y="-76" width="32" height="7" rx="3.5" fill="#818cf8" opacity="0.8"/>
+    <circle r="22" fill="none" stroke="#818cf8" stroke-width="3" opacity="0.5"/>
+    <circle r="10" fill="#818cf8" opacity="0.8"/>
+  </g>
+
+  <!-- phone right -->
+  <g transform="translate(300 -10)">
+    <rect x="-44" y="-86" width="88" height="172" rx="14" fill="#0b1220" stroke="#22d3ee" stroke-width="5"/>
+    <circle cy="-70" r="4.5" fill="#22d3ee" opacity="0.8"/>
+    <circle r="22" fill="none" stroke="#22d3ee" stroke-width="3" opacity="0.5"/>
+    <circle r="10" fill="#22d3ee" opacity="0.8"/>
+  </g>
+</g>
+
+<!-- text -->
+<g transform="translate(120 230) scale(0.62)"><g transform="translate(4 4) scale(1.375)"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+<circle cx="32" cy="32" r="6" fill="#38bdf8"/></g>
+<text x="108" y="69" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="58" letter-spacing="-1" fill="#ffffff">Vor<tspan fill="#38bdf8">T2</tspan>x</text></g>
+<text x="120" y="400" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">AirDrop and</text>
+<text x="120" y="494" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">Quick Share</text>
+<text x="120" y="588" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#38bdf8">from Fedora</text>
+<text x="122" y="664" font-family="DejaVu Sans, Verdana, sans-serif" font-size="30" fill="#a8bdd2">Share files with iPhones and Android phones</text>
+<rect x="122" y="710" width="96" height="6" rx="3" fill="#38bdf8"/>
+</svg>
