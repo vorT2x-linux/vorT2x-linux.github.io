@@ -131,14 +131,20 @@
     };
     const resize = () => {
       const rect = canvas.getBoundingClientRect();
-      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      const nd = Math.min(window.devicePixelRatio || 1, 2);
+      // Skip if nothing changed (e.g. mobile URL bar showing/hiding).
+      if (rect.width === w && rect.height === h && nd === dpr && parts.length) return;
+      dpr = nd;
       w = rect.width; h = rect.height;
-      canvas.width = w * dpr; canvas.height = h * dpr;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       cx = w > 960 ? w * 0.72 : w * 0.5;
       cy = w > 960 ? h * 0.48 : h * 0.32;
+      // Keep existing particles so the swirl doesn't reset; just top up or trim.
       const count = Math.round(Math.min(520, (w * h) / 2600));
-      parts = Array.from({ length: count }, () => spawn({}, true));
+      while (parts.length < count) parts.push(spawn({}, true));
+      parts.length = count;
+      if (reduce) draw(true);
     };
     const draw = (still) => {
       ctx.fillStyle = still ? "rgba(6,10,19,1)" : "rgba(6,10,19,0.22)";
@@ -172,7 +178,10 @@
     const loop = () => { draw(false); raf = requestAnimationFrame(loop); };
     resize();
     if (reduce) draw(true); else loop();
-    window.addEventListener("resize", () => { resize(); if (reduce) draw(true); });
+    // Watch the canvas itself: the hero's height settles after load (fonts,
+    // content), which never fires a window resize event.
+    if ("ResizeObserver" in window) new ResizeObserver(resize).observe(canvas);
+    else window.addEventListener("resize", resize);
     window.addEventListener("pointermove", (e) => {
       const r = canvas.getBoundingClientRect();
       pointer.x = e.clientX - r.left; pointer.y = e.clientY - r.top; pointer.active = true;
