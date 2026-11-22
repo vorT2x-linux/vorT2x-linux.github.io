@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One tear-free 5K display on the iMac Pro · VorT2x Blog</title>
+<meta name="description" content="The iMac Pro's 5K panel is really two screens side by side. VorT2x now joins them into one 5120x2880 display on Fedora, with no tear at the seam. Here's how we got there.">
+<link rel="canonical" href="https://vort2x.org/blog/imac-pro-5k-one-display.html">
+<meta name="theme-color" content="#060a13">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VorT2x">
+<meta property="og:title" content="One tear-free 5K display on the iMac Pro · VorT2x Blog">
+<meta property="og:description" content="The iMac Pro's 5K panel is really two screens side by side. VorT2x now joins them into one 5120x2880 display on Fedora, with no tear at the seam. Here's how we got there.">
+<meta property="og:url" content="https://vort2x.org/blog/imac-pro-5k-one-display.html">
+<meta property="og:image" content="https://vort2x.org/blog/imac-pro-5k-one-display-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="article:published_time" content="2026-11-22">
+<meta property="article:section" content="Behind the scenes">
+<meta property="article:tag" content="Behind the scenes">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "One tear-free 5K display on the iMac Pro", "description": "The iMac Pro's 5K panel is really two screens side by side. VorT2x now joins them into one 5120x2880 display on Fedora, with no tear at the seam. Here's how we got there.", "image": "https://vort2x.org/blog/imac-pro-5k-one-display-hero.png", "datePublished": "2026-11-22", "dateModified": "2026-11-22", "author": {"@type": "Person", "name": "Kirk"}, "articleSection": "Behind the scenes", "keywords": "Behind the scenes, iMac Pro, 5K, amdgpu, display", "publisher": {"@type": "Organization", "name": "VorT2x", "url": "https://vort2x.org/"}, "mainEntityOfPage": "https://vort2x.org/blog/imac-pro-5k-one-display.html"}</script>
+<script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="VorT2x home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg>
+      <span>Vor<b>T2</b>x</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#install">Install</a>
+      <a href="/documentation.html">Docs</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="https://github.com/vorT2x-linux/vort2x">GitHub</a>
+      <a class="btn btn-sm btn-patreon" href="https://patreon.com/VorT2x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3.1 4.5 6.9 4.5c2.1 0 3.7 1.1 5.1 3 1.4-1.9 3-3 5.1-3 3.8 0 6 3.9 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg>Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <figure class="article-hero reveal"><img src="/blog/imac-pro-5k-one-display-hero.png" alt="An iMac Pro whose screen is made of two 2560 by 2880 halves, showing one window across both, next to the words One 5K display on the iMac Pro" width="1600" height="900"></figure>
+  <article class="article">
+    <div style="text-align:center"><a class="eyebrow" href="/blog/?tag=behind-the-scenes">Behind the scenes</a></div>
+    <h1>One tear-free 5K display on the iMac Pro</h1>
+    <div class="meta"><span>Kirk</span><span class="dot"></span><time datetime="2026-11-22">22 November 2026</time><span class="dot"></span><span>5 min read</span></div>
+    <div class="body">
+      <p>The iMac Pro has one of the most beautiful screens Apple ever made. On Linux, it has also been one of the most stubborn. As of this week, <strong>VorT2x shows the iMac Pro's 5K panel as what it is: one 5120×2880 display, sharp at 200%, with no tear down the middle.</strong></p>
+      <p>This took a lot of digging, a few false starts and two iMac Pros. Here's what was wrong, how we fixed it, and what it means for the other 5K iMacs.</p>
+
+      <h2>A screen that's secretly two screens</h2>
+      <p>Back in 2017, no single display cable could carry a 5K picture. So Apple cheated, rather cleverly. The panel inside the iMac Pro is driven as <strong>two tiles</strong>, each 2560×2880, fed over two separate links from the graphics card. macOS knows the trick and glues the halves back together, so you never notice.</p>
+      <p>Linux doesn't know the trick. Fedora's own kernel plays it safe and gives you a single 4K picture. And with the earlier 5K patches that VorT2x carried, the panel turned up as <strong>two separate monitors</strong> side by side. On my own iMac Pro that meant running one half at 2560×1440 and pretending the other half wasn't there. Not the experience a 5K iMac deserves.</p>
+
+      <h2>Joining the halves</h2>
+      <p>The first step was the patch that does the gluing. "amdgpu: add support for 5K", by <strong>Atharva Tiwari</strong> and <strong>Ed Schofield</strong>, merges the two tiles into one 5120×2880 output, so your desktop sees a single screen. It was written for the 2020 iMacs. On top of it sit <strong>André Eikmeyer</strong>'s patches from KAIT2EN, which add the iMac Pro and keep the 5K quirk to the Macs that need it.</p>
+      <p>That got us one big display. But the iMac Pro uses an older display engine than the 2020 iMacs (AMD's DCE 12, with a Radeon Pro Vega), and gluing the halves is only half the job. The other half is keeping them <em>in step</em>.</p>
+
+      <h2>The tear down the middle</h2>
+      <p>Each tile is drawn by its own part of the graphics card, on its own timer. If the left half shows frame 41 while the right half is still on frame 40, you see it: drag a window across the middle or play a video, and there's a jagged line right down the seam. That's tearing, and on a screen this size it's very hard to unsee.</p>
+      <p>So the series grew a set of patches that make the two halves behave like one:</p>
+      <ul>
+        <li><strong>Same frame, both halves.</strong> When a new picture is ready, both tiles take it on the same refresh, not one after the other.</li>
+        <li><strong>Only what touches the panel.</strong> Updates for an external monitor don't get held up waiting for the iMac's screen.</li>
+        <li><strong>A ruler for the seam.</strong> A small debug file reports how far apart the two halves are running, so we could measure instead of squinting.</li>
+      </ul>
+
+      <h2>What the hardware taught us</h2>
+      <p>The code looked right on paper. Then it met real iMacs, and each test taught us something.</p>
+      <h3>The vanishing pointer</h3>
+      <p>The first boot was a big moment: one 5120×2880 display at 200%, and no tearing. But the mouse pointer disappeared the moment it crossed onto the right half. Clicks still worked; you just couldn't see where you were clicking. The older display engine places the pointer in a different way than the newer one the patch was written for, so it was being drawn off-screen. A small fix put it back, and now it glides across the seam like it should.</p>
+      <h3>The 30-second freeze</h3>
+      <p>The next problem was nastier. At login, and after waking from sleep, the screen froze for 30 to 40 seconds. Sometimes the login gave up entirely. The kernel log said <code>flip_done timed out</code>: the left half was waiting for a new frame that never arrived.</p>
+      <p>My first guess at the cause was wrong. To stop guessing, we added boot switches that turn each part of the syncing on or off, and tried them one by one. That found it. A per-frame step that pulled the right half back in line with the left was also holding back each half's new frames until the other had one too. Most of the time that's fine. At login, when only one half has something new to show, it waits forever.</p>
+      <h3>The happy surprise</h3>
+      <p>With that step switched off, the debug file told us something lovely. The two halves sat exactly <strong>17 pixels (35 billionths of a second) apart</strong>, and stayed there. After ten minutes, after an hour, after sleep and wake. The tiles share the same clock, so once they start together they never drift. There's nothing to correct every frame, and no tearing either.</p>
+      <p>So that step is now off by default. The code stays in, so it can be switched back on if a Mac ever turns out to need it.</p>
+
+      <h2>Tested on real iMacs</h2>
+      <p>On my iMac Pro, with no special boot options, we checked that:</p>
+      <ul>
+        <li>Settings shows one 5120×2880 display;</li>
+        <li>the pointer is visible on both halves and across the seam;</li>
+        <li>there's no tear at the seam when dragging windows or playing video;</li>
+        <li>there are no freezes at login.</li>
+      </ul>
+      <p>A friend ran the long tests on their own iMac Pro: an hour of use and a sleep and wake, with the seam still steady at 17 pixels and no freezes. Thank you, you know who you are.</p>
+      <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p><strong>Want the two halves back?</strong> Add <code>amdgpu.imac5k_merge=0</code> to the kernel command line and the panel shows up as two displays again, just as before.</p></div>
+
+      <h2>Where this puts us</h2>
+      <p>As far as we know, VorT2x is now the only T2 Linux project where the iMac Pro's panel works as one tear-free 5K display. At the time of writing, KAIT2EN still ships the earlier two-tile patches, and t2linux has an <a href="https://github.com/t2linux/kernel/issues/47">open report</a> of the iMac Pro's login screen splitting in two.</p>
+      <p>We're proud of that, and we also know whose shoulders we're standing on. All of this is GPL and in the open on <a href="https://github.com/vorT2x-linux/vort2x/pull/5">GitHub</a>, and we'd be glad to see it help iMac Pro owners on any distribution.</p>
+
+      <h2>What about the other 5K iMacs?</h2>
+      <ul>
+        <li><strong>iMac 2020 (iMac20,1 and iMac20,2):</strong> these should benefit too. VorT2x used to give them the same two-display setup, and they now get the merged 5120×2880 output as well. We haven't been able to test one yet, so if you have one, <a href="https://github.com/vorT2x-linux/vort2x/issues">we'd love to hear from you</a>.</li>
+        <li><strong>5K iMacs from 2014 to 2019:</strong> these don't have a T2 chip, so they're not covered by VorT2x and nothing changes for them.</li>
+      </ul>
+
+      <h2>Getting it</h2>
+      <p>The fix is out now in <a href="https://github.com/vorT2x-linux/vort2x/releases/tag/v0.2.2"><strong>VorT2x v0.2.2</strong></a>. Already running VorT2x? Open <strong>VorT2x Update</strong> to get it. New installs get it straight away. On an iMac Pro, VorT2x builds the patched graphics driver for you and carries it over to new Fedora kernels as they arrive. There's nothing to switch on.</p>
+      <p>Two iMac Pro problems we spotted along the way are separate and still open: a Thunderbolt Display can stay dark after sleep, and the iMac can power off when a game starts. They're next on the list.</p>
+
+      <h2>Thank you</h2>
+      <p>This fix stands on the work of Atharva Tiwari and Ed Schofield, who made the 5K tiles into one display, and André Eikmeyer, who brought the iMac Pro into it. Their names stay on their patches. And thank you to everyone who has put up with half a screen on Linux for so long.</p>
+      <p>If you've got an iMac Pro sitting in a corner because Linux never looked right on it, now's a great time to dust it off. And if this saved your screen, consider supporting VorT2x on <a href="https://patreon.com/VorT2x">Patreon</a>: it pays for test hardware like the iMacs that made this possible.</p>
+      <p class="sign">— Kirk</p>
+    </div>
+
+    <div class="card author">
+      <div class="avatar"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="32" r="7" fill="currentColor"/></svg></div>
+      <div><strong>Kirk</strong><p style="margin:2px 0 0">Maintainer of VorT2x. Firm believer that T2 Macs are the best Linux machines ever made.</p></div>
+    </div>
+
+    <div class="share">
+      <a class="btn btn-primary" href="/#install">Try VorT2x</a>
+      <a class="btn" href="https://patreon.com/VorT2x">Support on Patreon</a>
+      <a class="btn" href="https://bsky.app/intent/compose?text=One%20tear-free%205K%20display%20on%20the%20iMac%20Pro%2C%20on%20Fedora%20Linux%20https%3A%2F%2Fvort2x.org%2Fblog%2Fimac-pro-5k-one-display.html">Share on Bluesky</a>
+      <a class="btn" href="https://mastodonshare.com/?text=One%20tear-free%205K%20display%20on%20the%20iMac%20Pro%2C%20on%20Fedora%20Linux&amp;url=https%3A%2F%2Fvort2x.org%2Fblog%2Fimac-pro-5k-one-display.html">Share on Mastodon</a>
+    </div>
+  </article>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg><span>Vor<b>T2</b>x</span></a>
+        <p>Fedora Linux on Apple T2 Macs. VorT2x is a fork of KAIT2EN, an independent project not affiliated with or endorsed by KAIT2EN or Apple.</p>
+      </div>
+      <div><h4>Project</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#install">Install</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/releases">Releases</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="/documentation.html">Documentation</a></li><li><a href="/#faq">FAQ</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/issues">Report a problem</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="https://github.com/vorT2x-linux/vort2x">GitHub</a></li><li><a href="https://patreon.com/VorT2x">Patreon</a></li><li><a href="mailto:contact@vort2x.org">contact@vort2x.org</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> VorT2x contributors. Built on the work of André Eikmeyer, 4f1sh3r and the KAIT2EN contributors.</span>
+      <span>Kernel modules GPL-2.0 · everything else GPL-3.0-or-later · Apple and Mac are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
