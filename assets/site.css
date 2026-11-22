@@ -413,13 +413,16 @@ td code { white-space: nowrap; }
 /* Homepage "Recent wins": post cards laid out side by side on wide screens. */
 #wins { padding-bottom: 40px; }
 .wins { display: grid; gap: 22px; }
-.win { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: center; }
-.win .thumb { border-bottom: 0; border-right: 1px solid var(--line); height: 100%; }
-.win .body { padding: 30px 34px; }
+.win { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); align-items: stretch; }
+/* Fill the left column at whatever height the text sets, instead of forcing 16:9 (which overflowed under the text). */
+.win .thumb { position: relative; aspect-ratio: auto; min-height: 260px; border-bottom: 0; border-right: 1px solid var(--line); }
+.win .thumb img { position: absolute; inset: 0; }
+.win .body { align-self: center; padding: 30px 34px; }
 .win h3 { font-weight: 750; font-size: clamp(1.4rem, 2.4vw, 1.8rem); letter-spacing: -0.025em; line-height: 1.15; margin: 10px 0 10px; color: var(--fg); }
 @media (max-width: 860px) {
   .win { grid-template-columns: 1fr; }
-  .win .thumb { border-right: 0; border-bottom: 1px solid var(--line); height: auto; }
+  .win .thumb { aspect-ratio: 16 / 9; min-height: 0; border-right: 0; border-bottom: 1px solid var(--line); }
+  .win .thumb img { position: static; }
   .win .body { padding: 22px 24px 26px; }
 }
 .more { display: inline-flex; gap: 6px; align-items: center; margin-top: 16px; color: var(--accent); font-weight: 600; }
