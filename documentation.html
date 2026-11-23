@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Documentation · VorT2x</title>
-<meta name="description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, Sidecar streaming and rescue tools.">
+<meta name="description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, fans and power, Sidecar streaming and rescue tools.">
 <link rel="canonical" href="https://vort2x.org/documentation.html">
 <meta name="theme-color" content="#060a13">
 <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="VorT2x">
 <meta property="og:title" content="Documentation · VorT2x">
-<meta property="og:description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, Sidecar streaming and rescue tools.">
+<meta property="og:description" content="How to install Fedora on an Apple T2 Mac with VorT2x: making the USB stick, first login, updates, Touch ID, Touch Bar, audio, graphics, fans and power, Sidecar streaming and rescue tools.">
 <meta property="og:url" content="https://vort2x.org/documentation.html">
 <meta property="og:image" content="https://vort2x.org/assets/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -66,6 +66,7 @@
       <li><a href="#touch-bar">Touch Bar</a></li>
       <li><a href="#audio">Audio</a></li>
       <li><a href="#graphics">Graphics</a></li>
+      <li><a href="#fans-and-power">Fans and power</a></li>
       <li><a href="#hardware-video-decoding">Video decoding</a></li>
       <li><a href="#streaming-using-sidecar">Streaming using Sidecar</a></li>
       <li><a href="#macos-volumes">macOS volumes</a></li>
@@ -158,11 +159,11 @@
         <thead><tr><th>App</th><th>What it does</th></tr></thead>
         <tbody>
           <tr><td>VorT2x Update</td><td>Updates VorT2x and installs only what changed.</td></tr>
-          <tr><td>T2 Fan Control</td><td>Fan curves with live temperatures.</td></tr>
-          <tr><td>T2 SMC Control</td><td>SMC temperatures and a battery charge limit.</td></tr>
-          <tr><td>T2 Force Click</td><td>Trackpad click and Force Click pressure and actions.</td></tr>
+          <tr><td>T2 Fan Control</td><td>Fan curves with live temperatures. On T2 iMacs, full fan speed as soon as a game starts, see <a href="#fans-and-power">Fans and power</a>.</td></tr>
+          <tr><td>T2 SMC Control</td><td>SMC fans, temperatures and power, and a battery charge limit on MacBooks.</td></tr>
+          <tr><td>T2 Force Click</td><td>Trackpad click and Force Click pressure and actions. MacBooks only.</td></tr>
           <tr><td>T2 TrueTone</td><td>Display white that follows the room light, evening mode and automatic brightness.</td></tr>
-          <tr><td>T2 Zone Power</td><td>Watches the SMC power zones.</td></tr>
+          <tr><td>T2 Zone Power</td><td>Watches the SMC power zones. On the iMac Pro it also holds back the GPU's top clock, see <a href="#fans-and-power">Fans and power</a>.</td></tr>
           <tr><td>T2 Power Tune</td><td>Tunes PCIe ASPM and power-saving settings.</td></tr>
           <tr><td>T2 Power Explorer</td><td>Shows device topology and runtime power state.</td></tr>
           <tr><td>T2 GPU Control / Hybrid GPU Control</td><td>Graphics settings on MacBook Pros with two GPUs.</td></tr>
@@ -176,6 +177,7 @@
     <section id="touch-id">
       <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 11c0 3-.5 6-2 8"/><path d="M8 4.8A8 8 0 0 1 20 12c0 2-.2 4-.7 6"/><path d="M4 16c.6-1.3 1-2.6 1-4a7 7 0 0 1 1.2-3.9"/><path d="M8.5 12a3.5 3.5 0 1 1 7 0c0 3.5-.8 6.5-2.2 9"/></svg></span>Touch ID<a class="anchor" href="#touch-id">#</a></h2>
       <p>VorT2x connects the T2's fingerprint sensor to Fedora's standard fingerprint service, <code>fprintd</code>, and switches on fingerprint login. You can then unlock your session and approve <code>sudo</code> with a finger.</p>
+      <p>Touch ID is installed on MacBooks only. Desktop Macs have no sensor, so the installer skips it, and removes it if an earlier version added it.</p>
       <ul>
         <li>It uses the fingerprints you enrolled in <strong>macOS</strong>. To add or remove fingers, do it there.</li>
         <li>Press <kbd>Esc</kbd> during a fingerprint prompt to stop it and type your password instead.</li>
@@ -203,6 +205,36 @@
     <section id="graphics">
       <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M7 12l3-3 2 2 4-4"/></svg></span>Graphics<a class="anchor" href="#graphics">#</a></h2>
       <p>MacBook Pros with both Intel and AMD graphics get a GPU control app that matches the Mac: <strong>T2 GPU Control</strong> or <strong>T2 Hybrid GPU Control</strong>. The installer picks the right one.</p>
+    </section>
+
+    <section id="fans-and-power">
+      <h2><span class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12c0-3 1-5.5 3.5-5.5S18 9 15 10.5zM12 12c2.6 1.5 4.3 3.6 3 5.8s-4.2.9-3-2.3zM12 12c-2.6 1.5-5.2 1.9-6.5-.3s1.4-4.2 3.9-2"/><circle cx="12" cy="12" r="1"/></svg></span>Fans and power<a class="anchor" href="#fans-and-power">#</a></h2>
+      <p><strong>T2 Fan Control</strong> runs the fans from a curve that follows your Mac's temperatures. Leave it on <strong>Automatic</strong> unless you want the SMC, the Mac's own power controller, to run the fans as it does at boot.</p>
+
+      <h3 id="fan-boost">Fan boost on the T2 iMacs</h3>
+      <p>A game can heat the GPU much faster than a temperature curve can follow. So on the iMac Pro and the 2020 27-inch iMacs, fan control also watches how busy the AMD GPU is:</p>
+      <ul>
+        <li>When the GPU is 80% busy or more on two readings in a row, a quarter of a second apart, the fans go straight to full speed.</li>
+        <li>They stay at full speed until 30 seconds after the GPU was last busy. Then the normal curve takes over and they slow down gradually.</li>
+        <li>Short spikes on the desktop, such as opening an app or playing a video, don't trigger it.</li>
+      </ul>
+      <p>The boost works only while fan control is on <strong>Automatic</strong>. MacBook Pros with an AMD GPU don't get it, because full fans in every game would just be noise on a laptop.</p>
+
+      <h3 id="imac-pro-gpu-clock">GPU clock limit on the iMac Pro</h3>
+      <p>Without help, starting a game could make the iMac Pro's SMC put the Mac to sleep, or switch it off, within seconds. The sudden jump from idle to full load at the Vega's top clock speeds is what sets it off.</p>
+      <p>To stop it, <strong>T2 Zone Power</strong> holds the iMac Pro's Radeon Pro Vega at its first five clock steps (sclk states 0 to 4). On a Vega 64 that's at most 1201 MHz instead of 1350 MHz, about 11% off the top clock. The daemon checks the limit four times a second and puts it back if it's lost, for example after a GPU reset when waking from sleep. When the daemon stops, the GPU goes back to automatic clocks.</p>
+      <p>Other Macs aren't affected: the iMac Pro is the only T2 Mac with a Vega GPU.</p>
+      <p>To check that the limit is on, look for this line in the log after boot:</p>
+      <div class="code"><pre><span class="p">$ </span><span class="cmd">journalctl -b -u t2-zonepowerd | grep Vega</span>
+Vega 10 graphics clock held at sclk states 0-4</pre></div>
+
+      <h3 id="gaming-tips">Gaming on a T2 iMac</h3>
+      <ul>
+        <li>Play at 2560×1440 and let it scale up to the full screen. Rendering a game at 5120×2880 works the GPU much harder, and hasn't been tested with the fan boost and clock limit together.</li>
+        <li>Some games, such as Counter-Strike 2, set the resolution back to 5K when you apply a graphics preset. Check it after changing presets.</li>
+        <li>Cap the frame rate if the game allows it. Without a cap, the GPU runs flat out even in menus.</li>
+      </ul>
+      <p>The story of how we tracked this down is on the blog: <a href="/blog/tuning-t2-imacs-for-gaming.html">Tuning the T2 iMacs for gaming</a>.</p>
     </section>
 
     <section id="hardware-video-decoding">
