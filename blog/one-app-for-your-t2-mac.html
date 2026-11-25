@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>One app for your T2 Mac · VorT2x Blog</title>
+<meta name="description" content="VorT2x used to install a dozen separate apps. Now there's one: the VorT2x Dashboard, with a page for every part of your Mac that VorT2x set up, and nothing for the parts it didn't.">
+<link rel="canonical" href="https://vort2x.org/blog/one-app-for-your-t2-mac.html">
+<meta name="theme-color" content="#060a13">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VorT2x">
+<meta property="og:title" content="One app for your T2 Mac · VorT2x Blog">
+<meta property="og:description" content="VorT2x used to install a dozen separate apps. Now there's one: the VorT2x Dashboard, with a page for every part of your Mac that VorT2x set up, and nothing for the parts it didn't.">
+<meta property="og:url" content="https://vort2x.org/blog/one-app-for-your-t2-mac.html">
+<meta property="og:image" content="https://vort2x.org/blog/one-app-for-your-t2-mac-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="article:published_time" content="2026-11-25">
+<meta property="article:section" content="Features in depth">
+<meta property="article:tag" content="Features in depth">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "One app for your T2 Mac", "description": "VorT2x used to install a dozen separate apps. Now there's one: the VorT2x Dashboard, with a page for every part of your Mac that VorT2x set up, and nothing for the parts it didn't.", "image": "https://vort2x.org/blog/one-app-for-your-t2-mac-hero.png", "datePublished": "2026-11-25", "dateModified": "2026-11-25", "author": {"@type": "Person", "name": "Kirk"}, "articleSection": "Features in depth", "keywords": "Features in depth, VorT2x Dashboard, GTK, libadwaita, fan control, Power Tune", "publisher": {"@type": "Organization", "name": "VorT2x", "url": "https://vort2x.org/"}, "mainEntityOfPage": "https://vort2x.org/blog/one-app-for-your-t2-mac.html"}</script>
+<script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="VorT2x home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg>
+      <span>Vor<b>T2</b>x</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#install">Install</a>
+      <a href="/documentation.html">Docs</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="https://github.com/vorT2x-linux/vort2x">GitHub</a>
+      <a class="btn btn-sm btn-patreon" href="https://patreon.com/VorT2x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3.1 4.5 6.9 4.5c2.1 0 3.7 1.1 5.1 3 1.4-1.9 3-3 5.1-3 3.8 0 6 3.9 4.5 7.3C19.5 16.4 12 21 12 21z"/></svg>Support</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <figure class="article-hero reveal"><img src="/blog/one-app-for-your-t2-mac-hero.png" alt="The VorT2x Dashboard on an iMac Pro: a sidebar with Fans, Zone Power, Power Explorer, Power Tune, SMC, AirShare, Debug and Updates, and the Fans page with live temperatures and the fan curve" width="1600" height="900"></figure>
+  <article class="article">
+    <div style="text-align:center"><a class="eyebrow" href="/blog/?tag=features">Features in depth</a></div>
+    <h1>One app for your T2 Mac</h1>
+    <div class="meta"><span>Kirk</span><span class="dot"></span><time datetime="2026-11-25">25 November 2026</time><span class="dot"></span><span>4 min read</span></div>
+    <div class="body">
+      <p>Until now, VorT2x put about a dozen apps in your app menu: Fan Control, Zone Power, Power Explorer, Power Tune, SMC Control, GPU Control, Force Click, TrueTone, AirShare, T2 Debug and VorT2x Update. Each had its own window, its own icon and its own idea of where things go.</p>
+      <p><strong>In VorT2x v0.3.0 they're one app: the VorT2x Dashboard.</strong> One window, a sidebar on the left, and a page for every part of your Mac that VorT2x set up.</p>
+
+      <h2>Only what your Mac has</h2>
+      <p>T2 Macs are not all the same. A MacBook Pro has a Touch Bar, a Force Touch trackpad and a battery. An iMac Pro has none of those, but it has a big Vega GPU and two fans to keep it cool. The installer already knows this and only sets up what each Mac needs.</p>
+      <p>The dashboard simply follows the installer. <strong>A page appears when its part is installed, and not otherwise.</strong> On my iMac Pro that's Fans, Zone Power, Power Explorer, Power Tune, SMC, AirShare, Debug and Updates. A MacBook also gets Force Click, the MacBook Pros with a switchable AMD graphics card get Graphics, and Macs with an ambient light sensor running GNOME get TrueTone. There's no list to maintain and no hardware check done twice: the installer decides once, and the dashboard shows the result.</p>
+
+      <figure style="margin:32px 0"><img src="/blog/one-app-dashboard-fans.png" alt="The Fans page in the VorT2x Dashboard, showing GPU and system temperatures, the fan curve and live temperature and fan graphs" width="1600" height="1079" loading="lazy" style="width:100%;height:auto;border-radius:14px"><figcaption style="text-align:center;opacity:.7;font-size:.9em;margin-top:10px">The Fans page, with the fan switch in its header.</figcaption></figure>
+
+      <h2>What it looks like</h2>
+      <p>The sidebar sits right on the window background, and the page you pick floats in a rounded card next to it. Each page keeps its own controls in its header, so the fan switch, the refresh button or the RTC sync button are where you'd expect them. At the bottom of the sidebar, a small card tells you which Mac you're on and what it runs, for example <em>iMac Pro (2017), Fedora 45 · COSMIC</em>. Light and dark themes both work, and the icons are built into the app, so they look right on GNOME and COSMIC alike.</p>
+
+      <figure style="margin:32px 0"><img src="/blog/one-app-dashboard-zone-power.png" alt="The Zone Power page in the VorT2x Dashboard, with power bars for each SMC zone, the applied clock limits and live graphs" width="1600" height="1079" loading="lazy" style="width:100%;height:auto;border-radius:14px"><figcaption style="text-align:center;opacity:.7;font-size:.9em;margin-top:10px">Zone Power: how much power each part of the Mac draws, against the limit the SMC sets.</figcaption></figure>
+
+      <figure style="margin:32px 0"><img src="/blog/one-app-dashboard-power-explorer.png" alt="The Power Explorer page in the VorT2x Dashboard, listing PCI devices with their runtime power state, with filters for issues, active and D0 devices" width="1600" height="1079" loading="lazy" style="width:100%;height:auto;border-radius:14px"><figcaption style="text-align:center;opacity:.7;font-size:.9em;margin-top:10px">Power Explorer: every device and its power state, with filters for the ones worth a look.</figcaption></figure>
+
+      <h2>Lighter on your Mac</h2>
+      <p>A dashboard with eleven pages could easily be eleven apps running at once. It isn't:</p>
+      <ul>
+        <li><strong>Pages are built the first time you open them.</strong> Opening the dashboard doesn't check GitHub, ask for your password or start reading sensors until you go to the page that needs it.</li>
+        <li><strong>Pages that update live only do so while you're looking.</strong> Fans, Zone Power, SMC, Graphics and TrueTone pause their readings when you switch to another page. Graphics used to ask for root access every three seconds and TrueTone used to check its service every second, even in the background.</li>
+        <li><strong>The work underneath hasn't changed.</strong> The fan daemon, the power daemon, the SMC service and the rest keep running exactly as before. Only the windows moved.</li>
+      </ul>
+
+      <h2>Power Tune, rewritten</h2>
+      <p>One app couldn't simply move in. Power Tune, which tunes PCIe link power states, runtime power management and wake sources while showing how deep your CPU sleeps, was written in Python. The rest of VorT2x is Rust, so I rewrote its window in Rust to make it a page like the others. The parts that do the actual work as root are the same as before, so your saved settings and the service that restores them at boot carry on as they were.</p>
+
+      <h2>Getting it</h2>
+      <p>The dashboard is in <a href="https://github.com/vorT2x-linux/vort2x/releases/tag/v0.3.0"><strong>VorT2x v0.3.0</strong></a>. Already running VorT2x? Open <strong>VorT2x Update</strong> one last time: after the update it's the <strong>VorT2x Dashboard</strong> in your app menu, and the separate apps are gone from it. New installs get the dashboard straight away. All the details are in the <a href="https://github.com/vorT2x-linux/vort2x/pull/11">pull request</a>.</p>
+      <p>I've tested it on an iMac Pro. Force Click, Graphics and TrueTone don't appear on mine, so those three pages haven't been opened on a Mac that has them yet. If yours does, <a href="https://github.com/vorT2x-linux/vort2x/issues">tell us how they look</a>.</p>
+      <p>And if you like where this is going, consider supporting VorT2x on <a href="https://patreon.com/VorT2x">Patreon</a>. It pays for test hardware, and maybe one day for a MacBook to test these pages on.</p>
+      <p class="sign">— Kirk</p>
+    </div>
+
+    <div class="card author">
+      <div class="avatar"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="32" r="7" fill="currentColor"/></svg></div>
+      <div><strong>Kirk</strong><p style="margin:2px 0 0">Maintainer of VorT2x. Firm believer that T2 Macs are the best Linux machines ever made.</p></div>
+    </div>
+
+    <div class="share">
+      <a class="btn btn-primary" href="/#install">Try VorT2x</a>
+      <a class="btn" href="https://patreon.com/VorT2x">Support on Patreon</a>
+      <a class="btn" href="https://bsky.app/intent/compose?text=One%20app%20for%20your%20T2%20Mac%3A%20the%20VorT2x%20Dashboard%20https%3A%2F%2Fvort2x.org%2Fblog%2Fone-app-for-your-t2-mac.html">Share on Bluesky</a>
+      <a class="btn" href="https://mastodonshare.com/?text=One%20app%20for%20your%20T2%20Mac%3A%20the%20VorT2x%20Dashboard&amp;url=https%3A%2F%2Fvort2x.org%2Fblog%2Fone-app-for-your-t2-mac.html">Share on Mastodon</a>
+    </div>
+  </article>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg><span>Vor<b>T2</b>x</span></a>
+        <p>Fedora Linux on Apple T2 Macs. An independent project, not affiliated with or endorsed by Apple.</p>
+      </div>
+      <div><h4>Project</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#install">Install</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/releases">Releases</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="/documentation.html">Documentation</a></li><li><a href="/#faq">FAQ</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/issues">Report a problem</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="https://github.com/vorT2x-linux/vort2x">GitHub</a></li><li><a href="https://patreon.com/VorT2x">Patreon</a></li><li><a href="mailto:contact@vort2x.org">contact@vort2x.org</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> VorT2x contributors · <a href="https://github.com/vorT2x-linux/vort2x/blob/main/NOTICE">Credits</a></span>
+      <span>Kernel modules GPL-2.0 · everything else GPL-3.0-or-later · Apple and Mac are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
