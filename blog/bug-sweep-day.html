@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bug Sweep Day · VorT2x Blog</title>
+<meta name="description" content="VorT2x v0.3.1 is a bug sweep: fans that always go back to the Mac, honest updates, safer AirDrop and Quick Share, sturdier kernel drivers and a quieter Mac at idle. Here's every fix.">
+<link rel="canonical" href="https://vort2x.org/blog/bug-sweep-day.html">
+<meta name="theme-color" content="#060a13">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="VorT2x">
+<meta property="og:title" content="Bug Sweep Day · VorT2x Blog">
+<meta property="og:description" content="VorT2x v0.3.1 is a bug sweep: fans that always go back to the Mac, honest updates, safer AirDrop and Quick Share, sturdier kernel drivers and a quieter Mac at idle. Here's every fix.">
+<meta property="og:url" content="https://vort2x.org/blog/bug-sweep-day.html">
+<meta property="og:image" content="https://vort2x.org/blog/bug-sweep-day-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="/assets/site.css">
+<meta property="article:published_time" content="2026-11-26">
+<meta property="article:section" content="Behind the scenes">
+<meta property="article:tag" content="Behind the scenes">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BlogPosting", "headline": "Bug Sweep Day", "description": "VorT2x v0.3.1 is a bug sweep: fans that always go back to the Mac, honest updates, safer AirDrop and Quick Share, sturdier kernel drivers and a quieter Mac at idle. Here's every fix.", "image": "https://vort2x.org/blog/bug-sweep-day-hero.png", "datePublished": "2026-11-26", "dateModified": "2026-11-26", "author": {"@type": "Person", "name": "Kirk"}, "articleSection": "Behind the scenes", "keywords": "Behind the scenes, bug fixes, fan control, AirDrop, Quick Share, kernel drivers, iMac Pro, MacBook Pro", "publisher": {"@type": "Organization", "name": "VorT2x", "url": "https://vort2x.org/"}, "mainEntityOfPage": "https://vort2x.org/blog/bug-sweep-day.html"}</script>
+<script defer src="/assets/site.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="ambient" aria-hidden="true"></div>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="/" aria-label="VorT2x home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg>
+      <span>Vor<b>T2</b>x</span>
+    </a>
+    <button class="nav-toggle" type="button" aria-label="Menu" aria-expanded="false"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/#features">Features</a>
+      <a href="/#install">Install</a>
+      <a href="/documentation.html">Docs</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a class="btn btn-sm btn-github" href="https://github.com/vorT2x-linux/vort2x"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.2-1.1-1.5-1.1-1.5-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.6.3-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-5 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.7 0 0 .8-.3 2.8 1a9.7 9.7 0 0 1 5 0c1.9-1.3 2.8-1 2.8-1 .5 1.4.2 2.4.1 2.7.6.7 1 1.6 1 2.7 0 3.9-2.3 4.7-4.6 5 .4.3.7.9.7 1.9V21c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg>GitHub</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<div class="progress" aria-hidden="true"></div>
+<div class="wrap">
+  <figure class="article-hero reveal"><img src="/blog/bug-sweep-day-hero.png" alt="A grid of tiles, nearly all ticked, with the last two bugs being swept off the edge, next to the words Bug Sweep Day, v0.3.1, fixes for every T2 Mac" width="1600" height="900"></figure>
+  <article class="article">
+    <div style="text-align:center"><a class="eyebrow" href="/blog/?tag=behind-the-scenes">Behind the scenes</a></div>
+    <h1>Bug Sweep Day</h1>
+    <div class="meta"><span>Kirk</span><span class="dot"></span><time datetime="2026-11-26">26 November 2026</time><span class="dot"></span><span>8 min read</span></div>
+    <div class="body">
+      <p>Yesterday's v0.3.0 brought every VorT2x app together in one window. Before building anything new on top of it, I went through all of VorT2x with a fine-tooth comb: the fan and power daemons, the installer and updater, the AirDrop and Quick Share receivers, the kernel drivers and the background services. Anything that could leave your Mac in a bad state, hang, lose a file or wake the CPU for no reason went on the list.</p>
+      <p><strong>Today all of it is fixed in VorT2x v0.3.1.</strong> Some fixes are for every T2 Mac, some for one model. Here's the whole list, grouped by what it means for you.</p>
+
+      <h2>Fans that always let go</h2>
+      <p>When VorT2x controls your fans, it switches the SMC (the chip that runs the fans) into manual mode. The SMC stays in that mode until someone tells it otherwise. So if the fan daemon stopped, crashed or was uninstalled, <strong>your fans could stay stuck at whatever speed they last had</strong>, fast or slow. That's fixed from every direction:</p>
+      <ul>
+        <li><strong>Fans go back to the Mac whenever the daemon stops.</strong> A normal stop, a shutdown, an uninstall, a crash or even a forced kill: every way out now hands the fans back to the SMC. It tries every fan and keeps retrying until all of them are released. The SMC driver itself also lets go of the fans on shutdown and when it's unloaded.</li>
+        <li><strong>No temperature reading no longer means slow fans.</strong> If the daemon can't read a temperature, it now gives the fans back to the SMC instead of setting them to minimum, and takes them back once readings return. If readings fail for about ten seconds in a row, the daemon restarts itself and finds the sensors again, even if they moved.</li>
+        <li><strong>Short glitches stay short.</strong> One failed reading no longer makes the daemon retry in a tight loop or restart straight away; it keeps its normal pace.</li>
+        <li><strong>The fan settings can't be stalled.</strong> The settings connection now has one firm deadline per request, so a misbehaving client can't hold up fan control, and the Fans page gives up after three seconds instead of freezing.</li>
+        <li><strong>Only the person at the Mac can change fan settings.</strong> Changing them needs root or the user logged in at the Mac itself; an SSH login no longer counts. The same rule now applies to starting the Quick Share hotspot. Settings are saved in one step, so a crash mid-save can't leave a broken file.</li>
+      </ul>
+
+      <h2>A steadier iMac Pro</h2>
+      <ul>
+        <li><strong>The Vega clock hold survives sleep.</strong> In v0.2.3 the iMac Pro learned to hold its graphics card back from its very top clock, which is what stops games from sending it to sleep. A GPU reset after waking could silently drop that limit. VorT2x now puts it back after every sleep, whenever the GPU wakes from its own power saving, and checks it every five seconds while the GPU is busy.</li>
+        <li><strong>The 5K panel's right half keeps up.</strong> A new fix to the iMac Pro 5K display patches: when only the left half's mode or on/off state changed, the right half could be skipped. Both halves now always change together.</li>
+        <li>The log no longer claims "no supported dGPU" right next to the line saying the Vega clock is held.</li>
+      </ul>
+
+      <h2>Updates that tell the truth</h2>
+      <ul>
+        <li><strong>A part that failed is no longer recorded as installed.</strong> When one piece of a step failed, for example a driver that wouldn't build for a new kernel, the step could still be marked as done, and VorT2x Update never offered it again. Now a step with a failed part counts as failed and gets retried. A new automatic test makes sure this stays fixed.</li>
+        <li><strong>Kernel updates without a network work.</strong> GNOME Software and Discover can install a new kernel while offline, and then VorT2x couldn't download the source it needs to build its drivers, so that kernel booted with stock graphics, Wi-Fi and Thunderbolt drivers. Now such a kernel is marked, and about two minutes after the next boot VorT2x rebuilds its drivers in the background, without holding up your desktop.</li>
+        <li><strong>No more install terminal at every login</strong> when the ACPI fix couldn't be applied. That failure is a warning again, as it was meant to be.</li>
+        <li><strong>Kernel patches apply more carefully.</strong> They now need a closer match with the kernel source, and when a looser match is needed as a fallback, the installer names exactly which parts needed it.</li>
+        <li><strong>Faster dependency installs:</strong> all packages go in one dnf transaction, falling back to one at a time only if that fails.</li>
+        <li><strong>Updates only come from GitHub's own release tags.</strong> The updater asks GitHub directly which releases exist and checks out exactly the commit GitHub names, so nothing added to the copy on your disk can pass for a release.</li>
+        <li>Smaller fixes: the macOS USB script no longer stops on Macs without Touch ID, reusing the USB stick keeps the original Fedora boot menu backup, and the rescue tool no longer empties the live session's DNS settings and now reports the input drivers for each kernel.</li>
+      </ul>
+
+      <h2>AirDrop and Quick Share: nothing until you say yes</h2>
+      <ul>
+        <li><strong>Nothing is written to your disk before you accept.</strong> Incoming files are saved under a temporary name only after you say yes, and get their real name once complete. Decline, cancel or a dropped connection, and the partial files are removed.</li>
+        <li><strong>Two files with the same name never overwrite each other.</strong> The second one gets the next free name.</li>
+        <li><strong>Oversized or odd offers are refused</strong>: more than 1000 files, more than your free space, or a second introduction from the same sender. Memory use per transfer is capped, and one bad accept no longer stops the whole service.</li>
+        <li><strong>The AirDrop receiver grows only as data arrives</strong>, instead of trusting the size the sender claims, and only after you've accepted. Its service now runs with a memory limit and a read-only view of the system, and files always land in <code>~/Downloads</code>.</li>
+        <li>Force Click only runs a stored command for the user who set it (if you had one, save it once again in the app), and Power Tune only accepts real device names.</li>
+      </ul>
+
+      <h2>Kernel drivers</h2>
+      <ul>
+        <li><strong>Internal USB after sleep</strong> (every T2 Mac). The camera, keyboard, trackpad, Touch Bar and ambient light sensor all sit behind the T2 chip's internal USB. A race when a request was cancelled could free memory that was still in use, and one port that failed to wake made Linux drop <em>every</em> T2 USB device. Both are fixed, along with several smaller error-handling gaps.</li>
+        <li><strong>A load average that tells the truth.</strong> The Sidecar driver's background thread counted as busy while it waited, adding a constant 1.0 to your load average. It now waits quietly, and backs off instead of spinning when the device reports errors.</li>
+        <li><strong>Touch Bar</strong> (MacBook Pros with a Touch Bar): pressing Fn no longer does slow work in a spot where it must be fast, Fn presses during sleep are ignored instead of queued, unloading is safe, and the dimming timer is reset at most once a second.</li>
+        <li><strong>Audio</strong>: a quick wake-then-sleep can no longer run leftover wake-up work into the next sleep.</li>
+        <li><strong>Graphics switching</strong> (MacBook Pros with two GPUs): a busy mailbox was read as data, which could cause an endless interrupt loop or power the AMD GPU down by mistake after waking. The driver also stops reporting stale data when a read times out.</li>
+        <li>Smaller fixes: a failed display probe cleans up properly, an uninitialised value is gone from the SMC key cache, and CPUs stay online for s2idle sleep.</li>
+      </ul>
+
+      <h2>A quieter Mac at idle</h2>
+      <p>Every wakeup costs a little battery and a little heat. Three services were waking up far more than they needed to:</p>
+      <ul>
+        <li><strong>Touch ID</strong> only watches the Escape key while a fingerprint check is actually running, and backs off when the sensor isn't reachable.</li>
+        <li><strong>Zone Power</strong> checks an unchanged CPU limit every five seconds instead of reading every CPU's settings four times a second.</li>
+        <li><strong>Force Click</strong> checks for its trackpad with one quick look instead of opening every input device once a second.</li>
+      </ul>
+
+      <h2>No more donation links</h2>
+      <p>VorT2x builds on the work of the original authors and the wider T2 Linux community, so it won't ask you for money. The donation links are gone from every app, the dashboard and this website.</p>
+
+      <h2>How it was checked</h2>
+      <p>Every change went through the project's static checks, the Rust apps' own tests with warnings treated as errors, and a fresh build of every changed kernel driver against Fedora 45's 7.3.4 kernel with extra warnings turned on. The iMac Pro 5K patches were applied to a Fedora kernel and built, just as the installer does it. On real hardware, v0.3.1 is running on my iMac Pro (2017) and a 13-inch MacBook Pro (2020): both installed it, rebooted and came up clean.</p>
+      <div class="callout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p><strong>Want to see the fan fix for yourself?</strong> Run <code>sudo systemctl stop t2-fancontrol</code> and listen: within a few seconds your fans should settle back to the Mac's own speed. <code>sudo systemctl start t2-fancontrol</code> brings VorT2x's fan curve back.</p></div>
+
+      <h2>Still on the list</h2>
+      <p>A few things from the review need a bigger change or more testing, so they're planned for later: building updates from a source folder that only root can change, the remaining background wakeups (Touch Bar, True Tone, the AirDrop receiver and internal USB polling), and skipping driver builds that haven't changed.</p>
+
+      <h2>Getting it</h2>
+      <p>Already running VorT2x? Open the <strong>Updates</strong> page in the VorT2x Dashboard and install <a href="https://github.com/vorT2x-linux/vort2x/releases/tag/v0.3.1"><strong>v0.3.1</strong></a>. New installs get it straight away. Every change, with its reasoning, is in the <a href="https://github.com/vorT2x-linux/vort2x/pull/12">pull request</a>.</p>
+      <p>Found something we missed? <a href="https://github.com/vorT2x-linux/vort2x/issues">Tell us</a>, and it goes on the next sweep.</p>
+      <p class="sign">— Kirk</p>
+    </div>
+
+    <div class="card author">
+      <div class="avatar"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><circle cx="32" cy="32" r="7" fill="currentColor"/></svg></div>
+      <div><strong>Kirk</strong><p style="margin:2px 0 0">Maintainer of VorT2x. Firm believer that T2 Macs are the best Linux machines ever made.</p></div>
+    </div>
+
+    <div class="share">
+      <a class="btn btn-primary" href="/#install">Try VorT2x</a>
+      <a class="btn" href="https://bsky.app/intent/compose?text=Bug%20Sweep%20Day%3A%20every%20fix%20in%20VorT2x%20v0.3.1%20https%3A%2F%2Fvort2x.org%2Fblog%2Fbug-sweep-day.html">Share on Bluesky</a>
+      <a class="btn" href="https://mastodonshare.com/?text=Bug%20Sweep%20Day%3A%20every%20fix%20in%20VorT2x%20v0.3.1&amp;url=https%3A%2F%2Fvort2x.org%2Fblog%2Fbug-sweep-day.html">Share on Mastodon</a>
+    </div>
+  </article>
+</div>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <a class="brand" href="/"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/><circle cx="32" cy="32" r="6" fill="#38bdf8"/></svg><span>Vor<b>T2</b>x</span></a>
+        <p>Fedora Linux on Apple T2 Macs. An independent project, not affiliated with or endorsed by Apple.</p>
+      </div>
+      <div><h4>Project</h4><ul><li><a href="/#features">Features</a></li><li><a href="/#install">Install</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/releases">Releases</a></li><li><a href="/blog/">Blog</a></li></ul></div>
+      <div><h4>Help</h4><ul><li><a href="/documentation.html">Documentation</a></li><li><a href="/#faq">FAQ</a></li><li><a href="https://github.com/vorT2x-linux/vort2x/issues">Report a problem</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="https://github.com/vorT2x-linux/vort2x">GitHub</a></li><li><a href="mailto:contact@vort2x.org">contact@vort2x.org</a></li></ul></div>
+    </div>
+    <div class="legal">
+      <span>© <span data-year>2026</span> VorT2x contributors · <a href="https://github.com/vorT2x-linux/vort2x/blob/main/NOTICE">Credits</a></span>
+      <span>Kernel modules GPL-2.0 · everything else GPL-3.0-or-later · Apple and Mac are trademarks of Apple Inc.</span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>

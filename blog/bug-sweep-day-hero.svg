@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0b1220"/>
+<stop offset="1" stop-color="#0f2438"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.48" r="0.45">
+<stop offset="0" stop-color="#38bdf8" stop-opacity="0.26"/>
+<stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+</radialGradient>
+<pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1.4" fill="#38bdf8" opacity="0.10"/>
+</pattern>
+<!-- a fixed tile: a tick -->
+<g id="ok">
+  <rect x="-44" y="-44" width="88" height="88" rx="16" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.45" stroke-width="3"/>
+  <path d="M -18 2 L -5 15 L 20 -13" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+<!-- a bug -->
+<g id="bug">
+  <g stroke="#f472b6" stroke-width="4" stroke-linecap="round" fill="none">
+    <path d="M -12 -6 L -26 -14 M -12 4 L -28 4 M -12 14 L -24 24 M 12 -6 L 26 -14 M 12 4 L 28 4 M 12 14 L 24 24"/>
+    <path d="M -6 -22 L -14 -34 M 6 -22 L 14 -34"/>
+  </g>
+  <circle cx="0" cy="-18" r="9" fill="#f472b6"/>
+  <ellipse cx="0" cy="6" rx="15" ry="20" fill="#f472b6"/>
+  <path d="M 0 -12 V 25" stroke="#0b1220" stroke-width="3"/>
+</g>
+<!-- a tile with a bug still on it -->
+<g id="bugtile">
+  <rect x="-44" y="-44" width="88" height="88" rx="16" fill="#0b1220" stroke="#f472b6" stroke-opacity="0.6" stroke-width="3"/>
+  <use href="#bug" transform="scale(0.95)"/>
+</g>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+
+<!-- a grid of parts: nearly all fixed, the last bugs being swept off the edge -->
+<g transform="translate(900 240)">
+  <use href="#ok" x="0" y="0"/><use href="#ok" x="110" y="0"/><use href="#ok" x="220" y="0"/><use href="#ok" x="330" y="0"/><use href="#ok" x="440" y="0"/>
+  <use href="#ok" x="0" y="110"/><use href="#ok" x="110" y="110"/><use href="#ok" x="220" y="110"/><use href="#ok" x="330" y="110"/><use href="#bugtile" x="440" y="110"/>
+  <use href="#ok" x="0" y="220"/><use href="#ok" x="110" y="220"/><use href="#ok" x="220" y="220"/><use href="#ok" x="330" y="220"/><use href="#ok" x="440" y="220"/>
+  <use href="#ok" x="0" y="330"/><use href="#ok" x="110" y="330"/><use href="#bugtile" x="220" y="330"/><use href="#ok" x="330" y="330"/><use href="#ok" x="440" y="330"/>
+
+  <!-- the sweep: an arc of motion lines across the grid -->
+  <g fill="none" stroke="#38bdf8" stroke-linecap="round">
+    <path d="M -90 470 Q 250 560 590 400" stroke-width="10" opacity="0.85"/>
+    <path d="M -60 500 Q 250 580 560 440" stroke-width="5" opacity="0.45"/>
+    <path d="M -30 528 Q 250 600 530 478" stroke-width="3" opacity="0.25"/>
+  </g>
+  <!-- bugs already swept out, tumbling away -->
+  <use href="#bug" transform="translate(580 330) rotate(35) scale(0.8)" opacity="0.8"/>
+  <use href="#bug" transform="translate(560 520) rotate(-60) scale(0.65)" opacity="0.55"/>
+  <use href="#bug" transform="translate(-110 520) rotate(110) scale(0.55)" opacity="0.4"/>
+</g>
+
+<!-- text -->
+<g transform="translate(120 230) scale(0.62)"><g transform="translate(4 4) scale(1.375)"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+<circle cx="32" cy="32" r="6" fill="#38bdf8"/></g>
+<text x="108" y="69" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="58" letter-spacing="-1" fill="#ffffff">Vor<tspan fill="#38bdf8">T2</tspan>x</text></g>
+<text x="120" y="400" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">Bug</text>
+<text x="120" y="494" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">Sweep</text>
+<text x="120" y="588" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#38bdf8">Day</text>
+<text x="122" y="664" font-family="DejaVu Sans, Verdana, sans-serif" font-size="30" fill="#a8bdd2">v0.3.1 · fixes for every T2 Mac</text>
+<rect x="122" y="710" width="96" height="6" rx="3" fill="#38bdf8"/>
+</svg>
