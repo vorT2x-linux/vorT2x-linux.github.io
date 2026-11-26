@@ -120,6 +120,8 @@ a:hover { text-decoration: underline; text-underline-offset: 3px; }
 }
 .btn-primary:hover { background: linear-gradient(135deg, #bae6fd, #7dd3fc 40%, var(--accent)); box-shadow: 0 16px 44px -10px rgba(56, 189, 248, .85), inset 0 1px 0 rgba(255,255,255,.5); }
 .btn-sm { padding: 8px 14px; font-size: .9rem; }
+.nav-links .btn-github { color: var(--fg); border-color: var(--line-strong); }
+.nav-links .btn-github:hover { color: var(--fg); border-color: rgba(56, 189, 248, .55); background: rgba(56, 189, 248, .08); }
 
 /* ---------- Hero ---------- */
 .hero { position: relative; padding: 70px 0 90px; overflow: hidden; isolation: isolate; }
