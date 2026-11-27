@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+<stop offset="0" stop-color="#0b1220"/>
+<stop offset="1" stop-color="#0f2438"/>
+</linearGradient>
+<radialGradient id="glow" cx="0.72" cy="0.48" r="0.45">
+<stop offset="0" stop-color="#38bdf8" stop-opacity="0.26"/>
+<stop offset="1" stop-color="#38bdf8" stop-opacity="0"/>
+</radialGradient>
+<pattern id="dots" width="32" height="32" patternUnits="userSpaceOnUse">
+<circle cx="2" cy="2" r="1.4" fill="#38bdf8" opacity="0.10"/>
+</pattern>
+</defs>
+<rect width="1600" height="900" fill="url(#bg)"/>
+<rect width="1600" height="900" fill="url(#dots)"/>
+<rect width="1600" height="900" fill="url(#glow)"/>
+
+<!-- the Check my Mac list: one row per T2 part -->
+<g transform="translate(900 190)">
+  <g transform="translate(0 0)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="16" fill="#38bdf8" opacity="0.18"/><path d="M 31 32 L 38 39 L 50 25" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">T2 bridge</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#38bdf8">works</text>
+  </g>
+  <g transform="translate(0 78)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="16" fill="#38bdf8" opacity="0.18"/><path d="M 31 32 L 38 39 L 50 25" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">Camera</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#38bdf8">works</text>
+  </g>
+  <g transform="translate(0 156)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="16" fill="#38bdf8" opacity="0.18"/><path d="M 31 32 L 38 39 L 50 25" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">Speakers</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#38bdf8">works</text>
+  </g>
+  <g transform="translate(0 234)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="16" fill="#38bdf8" opacity="0.18"/><path d="M 31 32 L 38 39 L 50 25" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">Wi-Fi</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#38bdf8">works</text>
+  </g>
+  <g transform="translate(0 312)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="14" fill="none" stroke="#5b708a" stroke-width="4"/><path d="M 30 42 L 50 22" stroke="#5b708a" stroke-width="4" stroke-linecap="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">Touch Bar</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#5b708a">not on this Mac</text>
+  </g>
+  <g transform="translate(0 390)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="16" fill="#38bdf8" opacity="0.18"/><path d="M 31 32 L 38 39 L 50 25" fill="none" stroke="#38bdf8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">5K display</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#38bdf8">works</text>
+  </g>
+  <g transform="translate(0 468)">
+    <rect x="0" y="0" width="560" height="64" rx="14" fill="#0b1220" stroke="#38bdf8" stroke-opacity="0.22" stroke-width="2"/>
+    <circle cx="40" cy="32" r="14" fill="none" stroke="#a8bdd2" stroke-width="4" stroke-dasharray="6 6"/>
+    <text x="76" y="42" font-family="DejaVu Sans, Verdana, sans-serif" font-size="27" fill="#ffffff">Sleep</text>
+    <text x="536" y="42" text-anchor="end" font-family="DejaVu Sans, Verdana, sans-serif" font-size="23" fill="#a8bdd2">not tried yet</text>
+  </g>
+</g>
+
+<!-- text -->
+<g transform="translate(120 230) scale(0.62)"><g transform="translate(4 4) scale(1.375)"><path d="M32 12a20 20 0 1 1-19.6 24" fill="none" stroke="#38bdf8" stroke-width="6" stroke-linecap="round"/>
+<circle cx="32" cy="32" r="6" fill="#38bdf8"/></g>
+<text x="108" y="69" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="58" letter-spacing="-1" fill="#ffffff">Vor<tspan fill="#38bdf8">T2</tspan>x</text></g>
+<text x="120" y="400" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">Check</text>
+<text x="120" y="494" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#ffffff">my</text>
+<text x="120" y="588" font-family="DejaVu Sans, Verdana, sans-serif" font-weight="bold" font-size="80" letter-spacing="-2" fill="#38bdf8">Mac</text>
+<text x="122" y="664" font-family="DejaVu Sans, Verdana, sans-serif" font-size="30" fill="#a8bdd2">v0.3.2 · see what works on your T2 Mac</text>
+<rect x="122" y="710" width="96" height="6" rx="3" fill="#38bdf8"/>
+</svg>
